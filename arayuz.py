@@ -264,6 +264,26 @@ def safe_unique(df, col, fallback_list):
     vals = list(dict.fromkeys(vals))
     return vals if vals else fallback_list
 
+import difflib
+
+# ================== CUSTOM FEATURE FUNCTION ==================
+def parse_bulundugu_kat_ordinal(x):
+    if x is None:
+        return 0
+    s = str(x).lower()
+    if "zemin" in s:
+        return 0
+    if "bodrum" in s:
+        return -1
+    nums = re.findall(r"\d+", s)
+    return int(nums[0]) if nums else 0
+
+
+# ================== MODEL/DATA LOAD ==================
+@st.cache_resource
+def load_model():
+    return joblib.load(MODEL_PATH)
+
 
 # ================== MODEL/DATA LOAD ==================
 @st.cache_resource
