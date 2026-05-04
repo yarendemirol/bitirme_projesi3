@@ -1,4 +1,4 @@
-
+import re
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 import joblib
 import streamlit as st
-import re
+
 import difflib
 
 import sys
@@ -671,7 +671,7 @@ def build_input_row(
     if COL_KATSAY in row:
         row[COL_KATSAY] = int(bina_kat_sayisi)
 
-    if "Kat_ordinal" in row and "parse_bulundugu_kat_ordinal" in globals():
+    row["Kat_ordinal"] = parse_bulundugu_kat_ordinal(bulundugu_kat)
         row["Kat_ordinal"] = parse_bulundugu_kat_ordinal(bulundugu_kat)
 
     if COL_KAT in row:
