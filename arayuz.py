@@ -1,4 +1,4 @@
-import re
+
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -6,13 +6,22 @@ import numpy as np
 import pandas as pd
 import joblib
 import streamlit as st
-
+import re
 import difflib
-
+from train import (
+    InferenceFeatureBuilder,
+    XGBModelWithFeatures,
+    EnsembleWithFeatures,
+    parse_bulundugu_kat_ordinal
+)
 import sys
 
 # Yeni modeldeki özel sınıfların modeli yüklerken (joblib.load)
 # tanınabilmesi için eğitim dosyasından içe aktarılması
+try:
+    from deneme_egitim6 import InferenceFeatureBuilder, XGBModelWithFeatures, EnsembleWithFeatures, parse_bulundugu_kat_ordinal
+except ImportError:
+    pass
 
 from sklearn.preprocessing import OneHotEncoder
 
@@ -263,26 +272,6 @@ def safe_unique(df, col, fallback_list):
     vals = [v.strip() for v in vals if v and v.strip() and v.strip().lower() != "nan"]
     vals = list(dict.fromkeys(vals))
     return vals if vals else fallback_list
-
-import difflib
-
-# ================== CUSTOM FEATURE FUNCTION ==================
-def parse_bulundugu_kat_ordinal(x):
-    if x is None:
-        return 0
-    s = str(x).lower()
-    if "zemin" in s:
-        return 0
-    if "bodrum" in s:
-        return -1
-    nums = re.findall(r"\d+", s)
-    return int(nums[0]) if nums else 0
-
-
-# ================== MODEL/DATA LOAD ==================
-@st.cache_resource
-def load_model():
-    return joblib.load(MODEL_PATH)
 
 
 # ================== MODEL/DATA LOAD ==================
@@ -671,7 +660,7 @@ def build_input_row(
     if COL_KATSAY in row:
         row[COL_KATSAY] = int(bina_kat_sayisi)
 
-    row["Kat_ordinal"] = parse_bulundugu_kat_ordinal(bulundugu_kat)
+    if "Kat_ordinal" in row and "parse_bulundugu_kat_ordinal" in globals():
         row["Kat_ordinal"] = parse_bulundugu_kat_ordinal(bulundugu_kat)
 
     if COL_KAT in row:
