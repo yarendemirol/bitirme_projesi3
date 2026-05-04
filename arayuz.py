@@ -13,10 +13,6 @@ import sys
 
 # Yeni modeldeki özel sınıfların modeli yüklerken (joblib.load)
 # tanınabilmesi için eğitim dosyasından içe aktarılması
-try:
-    from deneme_egitim6 import InferenceFeatureBuilder, XGBModelWithFeatures, EnsembleWithFeatures, parse_bulundugu_kat_ordinal
-except ImportError:
-    pass
 
 from sklearn.preprocessing import OneHotEncoder
 
