@@ -8,12 +8,7 @@ import joblib
 import streamlit as st
 import re
 import difflib
-from train import (
-    InferenceFeatureBuilder,
-    XGBModelWithFeatures,
-    EnsembleWithFeatures,
-    parse_bulundugu_kat_ordinal
-)
+
 import sys
 
 # Yeni modeldeki özel sınıfların modeli yüklerken (joblib.load)
