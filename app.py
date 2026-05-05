@@ -105,6 +105,43 @@ div[data-testid="stNumberInput"] input:focus {
     outline: none !important;
     box-shadow: 0 0 0 2px #4a90e2 !important;
 }
+
+/* Expander stil duzeltmesi */
+details[data-testid="stExpander"],
+div[data-testid="stExpander"],
+div[data-testid="stExpander"] > div {
+    background-color: white !important;
+    border: 1px solid #dce9ff !important;
+    border-radius: 12px !important;
+    margin-bottom: 10px;
+}
+details[data-testid="stExpander"] > summary,
+div[data-testid="stExpander"] summary,
+div[data-testid="stExpander"] > div:first-child {
+    background-color: white !important;
+    color: #0b2c5f !important;
+    font-weight: 600 !important;
+    border-radius: 12px !important;
+}
+div[data-testid="stExpander"] summary *,
+div[data-testid="stExpander"] summary p,
+div[data-testid="stExpander"] summary span,
+div[data-testid="stExpander"] > div:first-child * {
+    color: #0b2c5f !important;
+    background-color: transparent !important;
+}
+div[data-testid="stExpander"] summary svg {
+    fill: #0b2c5f !important;
+    stroke: #0b2c5f !important;
+}
+div[data-testid="stExpander"] div[data-testid="stExpanderDetails"] {
+    background-color: #f9fbff !important;
+}
+div[data-testid="stExpander"] div[data-testid="stExpanderDetails"] p,
+div[data-testid="stExpander"] div[data-testid="stExpanderDetails"] label,
+div[data-testid="stExpander"] div[data-testid="stExpanderDetails"] span {
+    color: #111111 !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -1062,41 +1099,24 @@ if st.button("💰 Tahmini Fiyatı Hesapla"):
         st.subheader("📌 Tahmini Satış Fiyatı")
         st.success(f"Yaklaşık **{tahmini_fiyat:,.0f} TL**")
 
-
         st.caption("Not: Bu değer, ilan verileri ve eğitilen makine öğrenmesi modeline göre yaklaşık bir tahmindir.")
-    
 
         if show_debug:
             with st.expander("🔎 Mahalle/İlçe/Şehir Debug"):
                 st.write("Modelde şehir kolonu:", dbg["col_il"])
                 st.write("Modelde ilçe kolonu:", dbg["col_ilce"])
                 st.write("Modelde mahalle kolonu:", dbg["col_mahalle"])
-
-                st.write("Şehir (UI):", dbg["il_ui"])
-                st.write("Şehir (modele giden):", dbg["il_sent"])
-                st.write("Model şehir tanıyor mu?:", dbg["il_known"])
-                st.write("Model şehir kategori sayısı:", dbg["il_cat_count"])
-
-                st.write("İlçe (UI):", dbg["ilce_ui"])
-                st.write("İlçe (modele giden):", dbg["ilce_sent"])
-                st.write("Model ilçe tanıyor mu?:", dbg["ilce_known"])
-                st.write("Model ilçe kategori sayısı:", dbg["ilce_cat_count"])
-
-                st.write("Mahalle (UI):", dbg["mah_ui"])
-                st.write("Mahalle (modele giden):", dbg["mah_sent"])
-                st.write("Model mahalle tanıyor mu?:", dbg["mah_known"])
-                st.write("Model mahalle kategori sayısı:", dbg["mah_cat_count"])
-
-                # İlçe sayısı hızlı kontrol
-                st.write("Bu şehir için UI ilçe sayısı:", len(ilce_list))
+                st.write("Şehir (UI):", dbg["il_ui"], "→", dbg["il_sent"], "(tanınan:", dbg["il_known"], ")")
+                st.write("İlçe (UI):", dbg["ilce_ui"], "→", dbg["ilce_sent"], "(tanınan:", dbg["ilce_known"], ")")
+                st.write("Mahalle (UI):", dbg["mah_ui"], "→", dbg["mah_sent"], "(tanınan:", dbg["mah_known"], ")")
 
     except Exception as e:
         st.error(f"Tahmin yapılırken hata oluştu: {e}")
         st.write("Modelin beklediği feature formatı ile girdiler uyuşmuyor olabilir.")
 
 
-
-
+# Arayuzu calistirmak icin terminale su komutu girin
+# python -m streamlit run app.py
 
 # Arayüzü çalıştırmak için terminale şu komutu girin 
 # python -m streamlit run app.py
