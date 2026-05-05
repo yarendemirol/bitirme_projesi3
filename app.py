@@ -1062,7 +1062,6 @@ if st.button("💰 Tahmini Fiyatı Hesapla"):
         st.subheader("📌 Tahmini Satış Fiyatı")
         st.success(f"Yaklaşık **{tahmini_fiyat:,.0f} TL**")
 
-        render_error_box_and_bar(tahmini_fiyat, ERROR_RATE)
 
         st.caption("Not: Bu değer, ilan verileri ve eğitilen makine öğrenmesi modeline göre yaklaşık bir tahmindir.")
         st.warning("Uyarı: Kullanılan ilan verileri 11-12 Şubat tarihinde çekilmiştir.")
