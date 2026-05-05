@@ -23,24 +23,28 @@ from sklearn.preprocessing import OneHotEncoder
 
 st.set_page_config(page_title="Satılık Konut Fiyat Tahmin Sistemi", page_icon="🏠")
 
-st.markdown("""
 <style>
+/* =========================
+   🌈 GENERAL THEME
+========================= */
+
 .stApp {
     background: linear-gradient(135deg, #f5f8ff, #eef4ff);
 }
 
-/* yazılar */
+/* tüm yazılar */
 p, label, span, .stMarkdown {
-    color: #111111  !important;
+    color: #111 !important;
 }
 
-/* başlık */
+/* başlıklar */
 .main-title {
     font-size: 36px;
     font-weight: 800;
     text-align: center;
     color: #0b2c5f;
 }
+
 .sub-title {
     font-size: 18px;
     text-align: center;
@@ -58,13 +62,45 @@ p, label, span, .stMarkdown {
     margin-bottom: 10px;
 }
 
-/* input */
+/* =========================
+   🔽 SELECTBOX
+========================= */
+
 div[data-baseweb="select"] > div {
     border-radius: 10px;
     background-color: white !important;
 }
 
-/* button */
+div[data-baseweb="select"],
+div[data-baseweb="select"] * {
+    color: #111 !important;
+}
+
+/* =========================
+   🔢 NUMBER INPUT
+========================= */
+
+div[data-testid="stNumberInput"] {
+    background-color: white !important;
+    border-radius: 10px !important;
+    padding: 4px;
+}
+
+div[data-baseweb="input"] input {
+    background-color: white !important;
+    color: #111 !important;
+    border-radius: 10px !important;
+}
+
+div[data-testid="stNumberInput"] input:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 2px #4a90e2 !important;
+}
+
+/* =========================
+   🔘 BUTTON
+========================= */
+
 .stButton>button {
     width: 100%;
     border-radius: 12px;
@@ -74,107 +110,22 @@ div[data-baseweb="select"] > div {
     padding: 10px;
     border: none;
 }
+
 .stButton>button:hover {
     transform: scale(1.02);
     transition: 0.2s;
 }
-div[data-baseweb="select"],
-div[data-baseweb="select"] * {
-    color: #111111 !important;
-}
-</style>
-<style>
-/* 🔵 NUMBER INPUT FIX (beyaz kutu) */
-div[data-baseweb="input"] input {
-    background-color: white !important;
-    color: #111111 !important;
-    border-radius: 10px !important;
-}
 
-/* Streamlit number input container */
-div[data-testid="stNumberInput"] {
-    background-color: white !important;
-    border-radius: 10px !important;
-    padding: 4px;
-}
+/* =========================
+   ☑️ CHECKBOX (KESİN FIX)
+========================= */
 
-/* Focus efekti */
-div[data-testid="stNumberInput"] input:focus {
-    outline: none !important;
-    box-shadow: 0 0 0 2px #4a90e2 !important;
-}
-/* ✅ CHECKBOX (Ek özellikler kutucukları) */
-div[data-testid="stCheckbox"] input {
-    accent-color: #4a90e2 !important;  /* tik rengi */
-}
-
-/* checkbox kutusu (arka plan + border) */
-div[data-testid="stCheckbox"] > label > div {
-    background-color: white !important;
-    border: 2px solid #dce9ff !important;
-    border-radius: 6px !important;
-}
-
-/* hover */
-div[data-testid="stCheckbox"]:hover > label > div {
-    border-color: #4a90e2 !important;
-}
-/* ✅ CHECKBOX TAM FIX (Streamlit BaseWeb override) */
-div[data-testid="stCheckbox"] label {
-    color: #111 !important;
-}
-
-/* kutunun kendisi */
-div[data-testid="stCheckbox"] svg {
-    fill: #4a90e2 !important;
-}
-
-/* checkbox kutu background */
-div[data-testid="stCheckbox"] > label > div:first-child {
-    background-color: white !important;
-    border: 2px solid #dce9ff !important;
-    border-radius: 5px !important;
-}
-
-/* seçili durum */
-div[data-testid="stCheckbox"] input:checked + div {
-    background-color: #4a90e2 !important;
-    border-color: #4a90e2 !important;
-}
-/* ✅ EXPANDER İÇİN FULL CHECKBOX FIX */
-div[data-testid="stExpander"] div[data-testid="stCheckbox"] label > div {
-    background-color: white !important;
-    border: 2px solid #dce9ff !important;
-    border-radius: 6px !important;
-}
-
-/* tick rengi */
-div[data-testid="stExpander"] div[data-testid="stCheckbox"] svg {
-    fill: #4a90e2 !important;
-}
-
-/* checked state background */
-div[data-testid="stExpander"] div[data-testid="stCheckbox"] input:checked + div {
-    background-color: #4a90e2 !important;
-    border-color: #4a90e2 !important;
-}
-
-/* yazılar */
-div[data-testid="stExpander"] {
-    color: #111 !important;
-}
-
-/* ================================
-   ✅ STREAMLIT EXPANDER CHECKBOX FIX
-   (kesin çözüm - BaseWeb override)
-================================ */
-
-/* tüm checkbox container */
+/* container */
 div[data-baseweb="checkbox"] {
-    background-color: transparent !important;
+    background: transparent !important;
 }
 
-/* checkbox kutusu */
+/* kutu */
 div[data-baseweb="checkbox"] div {
     background-color: white !important;
     border: 2px solid #dce9ff !important;
@@ -186,23 +137,36 @@ div[data-baseweb="checkbox"]:hover div {
     border-color: #4a90e2 !important;
 }
 
-/* tick (SVG) */
+/* tick */
 div[data-baseweb="checkbox"] svg {
     fill: #4a90e2 !important;
 }
 
-/* checked state */
+/* seçili durum */
 div[data-baseweb="checkbox"][aria-checked="true"] div {
     background-color: #4a90e2 !important;
     border-color: #4a90e2 !important;
 }
 
-/* expander içi ekstra garanti */
+/* =========================
+   📦 EXPANDER FIX
+========================= */
+
+div[data-testid="stExpander"] {
+    color: #111 !important;
+}
+
 div[data-testid="stExpander"] div[data-baseweb="checkbox"] div {
     background-color: white !important;
+    border: 2px solid #dce9ff !important;
 }
+
+div[data-testid="stExpander"] div[data-baseweb="checkbox"][aria-checked="true"] div {
+    background-color: #4a90e2 !important;
+    border-color: #4a90e2 !important;
+}
+
 </style>
-""", unsafe_allow_html=True)
 
 
 # ================== DOSYA YOLLARI ==================
