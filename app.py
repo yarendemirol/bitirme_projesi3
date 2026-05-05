@@ -862,54 +862,6 @@ def build_input_row(
     return pd.DataFrame([row]), dbg
 
 
-# ================== HATA KUTUSU + ÇUBUK ==================
-def render_error_box_and_bar(pred: float, rate: float):
-    margin = max(0.0, pred * rate)
-    low = max(0.0, pred - margin)
-    high = pred + margin
-
-    st.markdown(
-        f"""
-        <div style="border:1px solid #ff4b4b; padding:14px; border-radius:14px;
-                    background: rgba(255,75,75,0.08); margin-top:10px;">
-          <div style="font-size:1.00rem; color:#ff4b4b; font-weight:800;">Tahmini Hata Payı (±)</div>
-          <div style="font-size:1.25rem; color:#ffffff; margin-top:8px;">
-            {low:,.0f} TL — {high:,.0f} TL
-          </div>
-          <div style="font-size:0.90rem; color:#b0b0b0; margin-top:8px;">
-            ±{margin:,.0f} TL (yaklaşık ±{rate*100:.2f}%)
-          </div>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
-    scale_min = max(0.0, pred - 2 * margin)
-    scale_max = pred + 2 * margin
-    denom = (scale_max - scale_min) if (scale_max > scale_min) else 1.0
-
-    low_pct = (low - scale_min) / denom * 100
-    high_pct = (high - scale_min) / denom * 100
-    pred_pct = (pred - scale_min) / denom * 100
-
-    st.markdown(
-        f"""
-        <div style="margin-top:12px;">
-          <div style="position:relative; height:12px; background:rgba(255,255,255,0.10); border-radius:999px;">
-            <div style="position:absolute; left:{low_pct:.2f}%; width:{(high_pct-low_pct):.2f}%;
-                        height:12px; background:rgba(255,75,75,0.70); border-radius:999px;"></div>
-            <div style="position:absolute; left:calc({pred_pct:.2f}% - 1px); width:2px; height:18px; top:-3px;
-                        background:#ffffff;"></div>
-          </div>
-          <div style="display:flex; justify-content:space-between; font-size:0.78rem; color:#b0b0b0; margin-top:6px;">
-            <span>{scale_min:,.0f} TL</span>
-            <span>{scale_max:,.0f} TL</span>
-          </div>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
 
 # ================== UI ==================
 st.title("🏠 Satılık Konut Fiyat Tahmin Sistemi")
