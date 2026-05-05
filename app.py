@@ -130,33 +130,7 @@ div[data-testid="stNumberInput"] input {
     background-color: white !important;
     color: #111111 !important;
 }
-/* ================== STREAMLIT GLOBAL EXPANDER FIX ================== */
 
-/* expander iç container */
-div[data-testid="stExpanderDetails"] {
-    background: white !important;
-    color: #111111 !important;
-}
-
-/* expander içindeki HER element */
-div[data-testid="stExpanderDetails"] * {
-    background: transparent !important;
-    color: #111111 !important;
-}
-
-/* hover / focus override (Streamlit override’ını kırmak için) */
-div[data-testid="stExpanderDetails"] *:hover,
-div[data-testid="stExpanderDetails"] *:focus,
-div[data-testid="stExpanderDetails"] *:active {
-    background: transparent !important;
-    color: #111111 !important;
-}
-
-/* STREAMLIT INLINE STYLE BREAKER (asıl kritik satır) */
-div[data-testid="stExpanderDetails"] [style] {
-    background: white !important;
-    color: #111111 !important;
-}
 </style>
 """, unsafe_allow_html=True)
 
