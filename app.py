@@ -1064,7 +1064,7 @@ if st.button("💰 Tahmini Fiyatı Hesapla"):
 
 
         st.caption("Not: Bu değer, ilan verileri ve eğitilen makine öğrenmesi modeline göre yaklaşık bir tahmindir.")
-        st.warning("Uyarı: Kullanılan ilan verileri 11-12 Şubat tarihinde çekilmiştir.")
+    
 
         if show_debug:
             with st.expander("🔎 Mahalle/İlçe/Şehir Debug"):
