@@ -21,105 +21,99 @@ except ImportError:
 
 from sklearn.preprocessing import OneHotEncoder
 
-
 # ================== SAYFA AYARI ==================
 st.set_page_config(page_title="Satılık Konut Fiyat Tahmin Sistemi", page_icon="🏠")
 
 st.markdown(
     """
     <style>
-    /* Genel arka plan */
+    /* =========================
+       GENEL STİL
+    ========================= */
+
     .stApp {
         background-color: #f6f3ee;
         color: #111111;
     }
 
-    /* Tüm yazılar */
     html, body, [class*="css"]  {
         color: #111111 !important;
         font-family: "Arial";
     }
 
-    /* Sidebar */
     section[data-testid="stSidebar"] {
         background-color: #f1ede6;
     }
 
-    /* Input kutuları */
     .stTextInput, .stNumberInput, .stSelectbox {
-        background-color: white;
-        color: black;
+        background-color: white !important;
+        color: black !important;
     }
 
-    /* Button */
     button {
         background-color: #111111 !important;
         color: white !important;
         border-radius: 10px;
     }
 
-    /* Başlıklar */
     h1, h2, h3 {
         color: #111111 !important;
     }
 
-    /* Divider çizgisi */
     hr {
         border-color: #ddd;
+    }
+
+    /* =========================
+       SELECTBOX (BASEWEB FIX)
+    ========================= */
+
+    div[data-baseweb="select"] {
+        background-color: white !important;
+        color: black !important;
+        border-radius: 10px;
+    }
+
+    div[data-baseweb="select"] span {
+        color: black !important;
+    }
+
+    div[data-baseweb="popover"] {
+        background-color: white !important;
+        color: black !important;
+    }
+
+    div[role="option"] {
+        background-color: white !important;
+        color: black !important;
+    }
+
+    div[role="option"]:hover {
+        background-color: #f0eae0 !important;
+        color: black !important;
+    }
+
+    /* =========================
+       CHECKBOX
+    ========================= */
+
+    .stCheckbox label {
+        color: black !important;
+    }
+
+    /* =========================
+       RADIO / MULTISELECT
+    ========================= */
+
+    .stRadio label,
+    .stMultiSelect label {
+        color: black !important;
     }
 
     </style>
     """,
     unsafe_allow_html=True
 )
-/* =========================
-   SELECTBOX (EN ÖNEMLİ)
-========================= */
-
-/* Selectbox kutusu */
-div[data-baseweb="select"] {
-    background-color: white !important;
-    color: black !important;
-    border-radius: 10px;
-}
-
-/* Seçilen değer */
-div[data-baseweb="select"] span {
-    color: black !important;
-}
-
-/* Dropdown liste */
-div[data-baseweb="popover"] {
-    background-color: white !important;
-    color: black !important;
-}
-
-/* Dropdown seçenekler */
-div[role="option"] {
-    background-color: white !important;
-    color: black !important;
-}
-
-/* Hover olunca */
-div[role="option"]:hover {
-    background-color: #f0eae0 !important;
-    color: black !important;
-}
-
-
-/* =========================
-   CHECKBOX
-========================= */
-.stCheckbox label {
-    color: black !important;
-}
-
-/* =========================
-   RADIO / MULTISELECT
-========================= */
-.stRadio label, .stMultiSelect label {
-    color: black !important;
-}
 
 # ================== DOSYA YOLLARI ==================
 from pathlib import Path
