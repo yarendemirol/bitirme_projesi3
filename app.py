@@ -107,35 +107,31 @@ div[data-testid="stNumberInput"] input:focus {
     outline: none !important;
     box-shadow: 0 0 0 2px #4a90e2 !important;
 }
-/* ================== EXPANDER + HOVER FIX ================== */
+/* ================== STREAMLIT GLOBAL EXPANDER FIX ================== */
 
-/* iç alan normal */
+/* expander iç container */
 div[data-testid="stExpanderDetails"] {
-    background-color: white !important;
+    background: white !important;
     color: #111111 !important;
 }
 
-/* hover durumları */
-div[data-testid="stExpanderDetails"]:hover,
+/* expander içindeki HER element */
+div[data-testid="stExpanderDetails"] * {
+    background: transparent !important;
+    color: #111111 !important;
+}
+
+/* hover / focus override (Streamlit override’ını kırmak için) */
 div[data-testid="stExpanderDetails"] *:hover,
 div[data-testid="stExpanderDetails"] *:focus,
 div[data-testid="stExpanderDetails"] *:active {
-    color: #111111 !important;
-    background-color: white !important;
-}
-
-/* checkbox label hover */
-div[data-testid="stCheckbox"] label:hover span {
+    background: transparent !important;
     color: #111111 !important;
 }
 
-/* expander summary hover */
-div[data-testid="stExpander"] summary:hover {
-    color: #111111 !important;
-}
-
-/* extra güvenlik: tüm expander iç metinleri */
-div[data-testid="stExpander"] * {
+/* STREAMLIT INLINE STYLE BREAKER (asıl kritik satır) */
+div[data-testid="stExpanderDetails"] [style] {
+    background: white !important;
     color: #111111 !important;
 }
 </style>
