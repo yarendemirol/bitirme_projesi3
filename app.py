@@ -108,6 +108,9 @@ div[data-testid="stNumberInput"] {
     border-radius: 10px !important;
     border: none !important;
 }
+div[data-baseweb="select"] * {
+    color: #000000 !important;
+}
 
 </style>
 """,
