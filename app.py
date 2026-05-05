@@ -72,6 +72,54 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+/* =========================
+   SELECTBOX (EN ÖNEMLİ)
+========================= */
+
+/* Selectbox kutusu */
+div[data-baseweb="select"] {
+    background-color: white !important;
+    color: black !important;
+    border-radius: 10px;
+}
+
+/* Seçilen değer */
+div[data-baseweb="select"] span {
+    color: black !important;
+}
+
+/* Dropdown liste */
+div[data-baseweb="popover"] {
+    background-color: white !important;
+    color: black !important;
+}
+
+/* Dropdown seçenekler */
+div[role="option"] {
+    background-color: white !important;
+    color: black !important;
+}
+
+/* Hover olunca */
+div[role="option"]:hover {
+    background-color: #f0eae0 !important;
+    color: black !important;
+}
+
+
+/* =========================
+   CHECKBOX
+========================= */
+.stCheckbox label {
+    color: black !important;
+}
+
+/* =========================
+   RADIO / MULTISELECT
+========================= */
+.stRadio label, .stMultiSelect label {
+    color: black !important;
+}
 
 # ================== DOSYA YOLLARI ==================
 from pathlib import Path
