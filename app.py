@@ -103,6 +103,22 @@ div[data-testid="stNumberInput"] input:focus {
     outline: none !important;
     box-shadow: 0 0 0 2px #4a90e2 !important;
 }
+/* ✅ CHECKBOX (Ek özellikler kutucukları) */
+div[data-testid="stCheckbox"] input {
+    accent-color: #4a90e2 !important;  /* tik rengi */
+}
+
+/* checkbox kutusu (arka plan + border) */
+div[data-testid="stCheckbox"] > label > div {
+    background-color: white !important;
+    border: 2px solid #dce9ff !important;
+    border-radius: 6px !important;
+}
+
+/* hover */
+div[data-testid="stCheckbox"]:hover > label > div {
+    border-color: #4a90e2 !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
