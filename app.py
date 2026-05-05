@@ -119,6 +119,28 @@ div[data-testid="stCheckbox"] > label > div {
 div[data-testid="stCheckbox"]:hover > label > div {
     border-color: #4a90e2 !important;
 }
+/* ✅ CHECKBOX TAM FIX (Streamlit BaseWeb override) */
+div[data-testid="stCheckbox"] label {
+    color: #111 !important;
+}
+
+/* kutunun kendisi */
+div[data-testid="stCheckbox"] svg {
+    fill: #4a90e2 !important;
+}
+
+/* checkbox kutu background */
+div[data-testid="stCheckbox"] > label > div:first-child {
+    background-color: white !important;
+    border: 2px solid #dce9ff !important;
+    border-radius: 5px !important;
+}
+
+/* seçili durum */
+div[data-testid="stCheckbox"] input:checked + div {
+    background-color: #4a90e2 !important;
+    border-color: #4a90e2 !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
