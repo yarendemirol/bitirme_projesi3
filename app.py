@@ -31,61 +31,79 @@ st.markdown("""
     background: linear-gradient(135deg, #f5f8ff, #eef4ff);
 }
 
-/* ================== GLOBAL RESET (ÖNEMLİ) ================== */
-* {
-    transition: none !important;
-}
-
-/* ================== TEXT ================== */
+/* yazılar */
 p, label, span, .stMarkdown {
+    color: #111111  !important;
+}
+
+/* başlık */
+.main-title {
+    font-size: 36px;
+    font-weight: 800;
+    text-align: center;
+    color: #0b2c5f;
+}
+.sub-title {
+    font-size: 18px;
+    text-align: center;
+    color: #4a90e2;
+    margin-bottom: 25px;
+}
+
+/* kart */
+.card {
+    background: white;
+    padding: 18px;
+    border-radius: 18px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    border: 1px solid #dce9ff;
+    margin-bottom: 10px;
+}
+
+/* input */
+div[data-baseweb="select"] > div {
+    border-radius: 10px;
+    background-color: white !important;
+}
+
+/* button */
+.stButton>button {
+    width: 100%;
+    border-radius: 12px;
+    background: #A7D8FF !important;
+    color: white !important;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+}
+.stButton>button:hover {
+    transform: scale(1.02);
+    transition: 0.2s;
+}
+div[data-baseweb="select"],
+div[data-baseweb="select"] * {
     color: #111111 !important;
 }
-
-/* ================== CHECKBOX (TEK KAYNAK) ================== */
-
-/* checkbox kutusu */
-div[data-testid="stCheckbox"] div[role="checkbox"] {
-    background-color: #ffffff !important;
-    border: 2px solid #d0d7e2 !important;
-    border-radius: 6px !important;
-    box-shadow: none !important;
-}
-
-/* seçili checkbox */
-div[data-testid="stCheckbox"] div[role="checkbox"][aria-checked="true"] {
-    background-color: #4a90e2 !important;
-    border-color: #4a90e2 !important;
-}
-
-/* tik */
-div[data-testid="stCheckbox"] svg {
-    fill: #ffffff !important;
-}
-
-/* yazı */
-div[data-testid="stCheckbox"] label,
-div[data-testid="stCheckbox"] span,
-div[data-testid="stCheckbox"] * {
+</style>
+<style>
+/* 🔵 NUMBER INPUT FIX (beyaz kutu) */
+div[data-baseweb="input"] input {
+    background-color: white !important;
     color: #111111 !important;
+    border-radius: 10px !important;
 }
 
-/* hover TAMAMEN kapalı */
-div[data-testid="stCheckbox"]:hover div[role="checkbox"] {
-    background-color: #ffffff !important;
-    border-color: #d0d7e2 !important;
-    transform: none !important;
-    box-shadow: none !important;
+/* Streamlit number input container */
+div[data-testid="stNumberInput"] {
+    background-color: white !important;
+    border-radius: 10px !important;
+    padding: 4px;
 }
 
-/* ================== EXPANDER ================== */
-div[data-testid="stExpander"] summary {
-    font-weight: 600;
-    color: #0b2c5f !important;
-}
-
-/* expander içi */
-div[data-testid="stExpander"] {
-    background: transparent !important;
+/* Focus efekti */
+div[data-testid="stNumberInput"] input:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 2px #4a90e2 !important;
 }
 </style>
 """, unsafe_allow_html=True)
