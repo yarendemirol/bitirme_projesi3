@@ -779,7 +779,7 @@ CITY_IMAGES = {
 cols = st.columns(3)
 
 if "sehir" not in st.session_state:
-            st.session_state["sehir"] = "İstanbul"
+    st.session_state["sehir"] = "İstanbul"
   
 for i, city in enumerate(CITY_IMAGES.keys()):
     with cols[i]:
