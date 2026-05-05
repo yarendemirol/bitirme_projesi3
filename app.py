@@ -108,7 +108,38 @@ div[data-testid="stNumberInput"] {
     border-radius: 10px !important;
     border: none !important;
 }
-div[data-baseweb="select"] * {
+/* =========================
+   SELECTBOX DROPDOWN FULL WHITE FIX
+========================= */
+
+/* dropdown panel */
+div[data-baseweb="popover"] ul {
+    background-color: #ffffff !important;
+    border-radius: 10px !important;
+}
+
+/* seçenek kutuları */
+div[data-baseweb="popover"] li {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* hover */
+div[data-baseweb="popover"] li:hover {
+    background-color: #f2f2f2 !important;
+    color: #000000 !important;
+}
+
+/* seçili / aktif item */
+div[data-baseweb="popover"] li[aria-selected="true"] {
+    background-color: #eaeaea !important;
+    color: #000000 !important;
+}
+
+/* focus (klavye ile seçince gelen koyu gri) */
+div[data-baseweb="popover"] li:focus,
+div[data-baseweb="popover"] li:active {
+    background-color: #f2f2f2 !important;
     color: #000000 !important;
 }
 
