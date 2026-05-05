@@ -24,9 +24,7 @@ from sklearn.preprocessing import OneHotEncoder
 st.set_page_config(page_title="Satılık Konut Fiyat Tahmin Sistemi", page_icon="🏠")
 
 <style>
-/* =========================
-   🌈 GENERAL THEME
-========================= */
+
 
 .stApp {
     background: linear-gradient(135deg, #f5f8ff, #eef4ff);
