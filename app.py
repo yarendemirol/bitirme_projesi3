@@ -105,41 +105,36 @@ div[data-testid="stNumberInput"] input:focus {
     outline: none !important;
     box-shadow: 0 0 0 2px #4a90e2 !important;
 }
-/* ================== EXPANDER FULL FIX ================== */
+/* ================== EXPANDER + HOVER FIX ================== */
 
-/* dış kutu */
-div[data-testid="stExpander"] {
-    background-color: white !important;
-    border-radius: 14px !important;
-    border: 1px solid #dce9ff !important;
-}
-
-/* başlık */
-div[data-testid="stExpander"] summary {
-    color: #111111 !important;
-    font-weight: 600 !important;
-}
-
-/* 🔥 İÇ KISIM (asıl siyah alan burası) */
+/* iç alan normal */
 div[data-testid="stExpanderDetails"] {
     background-color: white !important;
     color: #111111 !important;
-    padding: 10px 14px !important;
 }
 
-/* içindeki tüm yazılar */
-div[data-testid="stExpanderDetails"] * {
+/* hover durumları */
+div[data-testid="stExpanderDetails"]:hover,
+div[data-testid="stExpanderDetails"] *:hover,
+div[data-testid="stExpanderDetails"] *:focus,
+div[data-testid="stExpanderDetails"] *:active {
+    color: #111111 !important;
+    background-color: white !important;
+}
+
+/* checkbox label hover */
+div[data-testid="stCheckbox"] label:hover span {
     color: #111111 !important;
 }
 
-/* checkbox label */
-div[data-testid="stCheckbox"] label span {
+/* expander summary hover */
+div[data-testid="stExpander"] summary:hover {
     color: #111111 !important;
 }
 
-/* checkbox container */
-div[data-testid="stCheckbox"] {
-    background: transparent !important;
+/* extra güvenlik: tüm expander iç metinleri */
+div[data-testid="stExpander"] * {
+    color: #111111 !important;
 }
 </style>
 """, unsafe_allow_html=True)
