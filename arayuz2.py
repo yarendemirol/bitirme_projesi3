@@ -8,12 +8,6 @@ import joblib
 import streamlit as st
 import re
 import difflib
-from train import (
-    InferenceFeatureBuilder,
-    XGBModelWithFeatures,
-    EnsembleWithFeatures,
-    parse_bulundugu_kat_ordinal
-)
 import sys
 
 # Yeni modeldeki özel sınıfların modeli yüklerken (joblib.load)
@@ -778,9 +772,6 @@ CITY_IMAGES = {
 
 cols = st.columns(3)
 
-if "sehir" not in st.session_state:
-    st.session_state["sehir"] = "İstanbul"
-  
 for i, city in enumerate(CITY_IMAGES.keys()):
     with cols[i]:
         img_path = CITY_IMAGES[city]
@@ -790,10 +781,7 @@ for i, city in enumerate(CITY_IMAGES.keys()):
 
         if st.button(city):
             st.session_state["sehir"] = city
-            st.rerun()
-          
 
-sehir = st.session_state["sehir"]
 
 # seçili şehir artık buradan geliyor
 # default güvenli başlan
@@ -810,7 +798,7 @@ sehir = st.selectbox(
     key="sehir"
 )
 
-df_city = df_all
+df_city = df_all[df_all["Il_norm"] == norm_tr(sehir)].copy()
 if df_all is not None and (not df_all.empty) and ("Il_norm" in df_all.columns):
     df_city = df_all.loc[df_all["Il_norm"] == norm_tr(sehir)].copy()
 
