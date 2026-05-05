@@ -788,7 +788,7 @@ for i, city in enumerate(CITY_IMAGES.keys()):
         if st.button(city):
             st.session_state["sehir"] = city
         if "sehir" not in st.session_state:
-    st.session_state["sehir"] = "İstanbul"
+            st.session_state["sehir"] = "İstanbul"
 
     sehir = st.session_state["sehir"]
 
