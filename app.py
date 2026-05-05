@@ -141,6 +141,28 @@ div[data-testid="stCheckbox"] input:checked + div {
     background-color: #4a90e2 !important;
     border-color: #4a90e2 !important;
 }
+/* ✅ EXPANDER İÇİN FULL CHECKBOX FIX */
+div[data-testid="stExpander"] div[data-testid="stCheckbox"] label > div {
+    background-color: white !important;
+    border: 2px solid #dce9ff !important;
+    border-radius: 6px !important;
+}
+
+/* tick rengi */
+div[data-testid="stExpander"] div[data-testid="stCheckbox"] svg {
+    fill: #4a90e2 !important;
+}
+
+/* checked state background */
+div[data-testid="stExpander"] div[data-testid="stCheckbox"] input:checked + div {
+    background-color: #4a90e2 !important;
+    border-color: #4a90e2 !important;
+}
+
+/* yazılar */
+div[data-testid="stExpander"] {
+    color: #111 !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
