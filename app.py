@@ -91,6 +91,82 @@ div[data-baseweb="popover"],
 div[data-baseweb="menu"] {
     background-color: #ffffff !important;
 }
+/* =========================
+   SELECTBOX FULL OVERRIDE (STREAMLIT BASEWEB)
+========================= */
+
+/* dropdown kutusu */
+div[data-baseweb="select"] {
+    background-color: #ffffff !important;
+    border-radius: 10px !important;
+    border: 1px solid #ddd !important;
+    box-shadow: none !important;
+}
+
+/* seçili text */
+div[data-baseweb="select"] * {
+    color: #000000 !important;
+}
+
+/* popup container */
+div[data-baseweb="popover"] {
+    background-color: #ffffff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08) !important;
+}
+
+/* menu wrapper */
+div[data-baseweb="menu"] {
+    background-color: #ffffff !important;
+}
+
+/* UL list */
+div[data-baseweb="menu"] ul {
+    background-color: #ffffff !important;
+    padding: 6px !important;
+}
+
+/* OPTION ITEM (asıl sorun buradaydı) */
+div[data-baseweb="menu"] li,
+div[role="option"] {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border-radius: 8px !important;
+}
+
+/* hover */
+div[data-baseweb="menu"] li:hover,
+div[role="option"]:hover {
+    background-color: #f2f2f2 !important;
+    color: #000000 !important;
+}
+
+/* selected item */
+div[data-baseweb="menu"] li[aria-selected="true"],
+div[role="option"][aria-selected="true"] {
+    background-color: #e6e6e6 !important;
+    color: #000000 !important;
+}
+
+/* focus / active (Streamlit griyi buradan basıyor) */
+div[data-baseweb="menu"] li:focus,
+div[data-baseweb="menu"] li:active,
+div[role="option"]:focus,
+div[role="option"]:active {
+    background-color: #f2f2f2 !important;
+    color: #000000 !important;
+    outline: none !important;
+}
+
+/* icon / chevron */
+div[data-baseweb="select"] svg {
+    fill: #000000 !important;
+}
+
+/* placeholder */
+div[data-baseweb="select"] div {
+    color: #000000 !important;
+}
 
 /* list */
 div[data-baseweb="menu"] ul {
