@@ -172,6 +172,31 @@ div[data-testid="stCheckbox"]:hover div[role="checkbox"] {
     transform: none !important;
     box-shadow: none !important;
 }
+/* ================== CHECKBOX - WHITE STYLE ================== */
+
+/* checkbox kutusu (seçilmemiş hali) */
+div[data-testid="stCheckbox"] div[role="checkbox"] {
+    background-color: white !important;
+    border: 2px solid #d0d7e2 !important;
+    border-radius: 6px !important;
+}
+
+/* checkbox seçili hali */
+div[data-testid="stCheckbox"] div[role="checkbox"][aria-checked="true"] {
+    background-color: #4a90e2 !important;
+    border-color: #4a90e2 !important;
+}
+
+/* tik rengi */
+div[data-testid="stCheckbox"] svg {
+    fill: white !important;
+}
+
+/* yazı rengi */
+div[data-testid="stCheckbox"] label,
+div[data-testid="stCheckbox"] span {
+    color: #111111 !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
