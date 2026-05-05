@@ -39,23 +39,20 @@ st.markdown(
         font-family: Arial, sans-serif !important;
     }
 
-    /* Tüm yazılar */
     * {
         color: #000000 !important;
     }
 
-    /* Başlıklar */
     h1, h2, h3, h4, h5, h6 {
         color: #000000 !important;
     }
 
-    /* Sidebar */
     section[data-testid="stSidebar"] {
         background-color: #f1ede6 !important;
     }
 
     /* =========================
-       INPUT & SELECTBOX
+       SELECTBOX (KATEGORİ KUTULARI FIX)
     ========================= */
 
     div[data-baseweb="select"] {
@@ -81,7 +78,15 @@ st.markdown(
         color: #000000 !important;
     }
 
-    /* Input kutuları */
+    .stSelectbox label {
+        color: #000000 !important;
+        font-weight: 500;
+    }
+
+    /* =========================
+       INPUT
+    ========================= */
+
     input, textarea {
         background-color: #ffffff !important;
         color: #000000 !important;
@@ -108,7 +113,7 @@ st.markdown(
     }
 
     /* =========================
-       AYIRICILAR
+       HR
     ========================= */
 
     hr {
