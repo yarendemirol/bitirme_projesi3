@@ -163,6 +163,44 @@ div[data-testid="stExpander"] div[data-testid="stCheckbox"] input:checked + div 
 div[data-testid="stExpander"] {
     color: #111 !important;
 }
+
+/* ================================
+   ✅ STREAMLIT EXPANDER CHECKBOX FIX
+   (kesin çözüm - BaseWeb override)
+================================ */
+
+/* tüm checkbox container */
+div[data-baseweb="checkbox"] {
+    background-color: transparent !important;
+}
+
+/* checkbox kutusu */
+div[data-baseweb="checkbox"] div {
+    background-color: white !important;
+    border: 2px solid #dce9ff !important;
+    border-radius: 6px !important;
+}
+
+/* hover */
+div[data-baseweb="checkbox"]:hover div {
+    border-color: #4a90e2 !important;
+}
+
+/* tick (SVG) */
+div[data-baseweb="checkbox"] svg {
+    fill: #4a90e2 !important;
+}
+
+/* checked state */
+div[data-baseweb="checkbox"][aria-checked="true"] div {
+    background-color: #4a90e2 !important;
+    border-color: #4a90e2 !important;
+}
+
+/* expander içi ekstra garanti */
+div[data-testid="stExpander"] div[data-baseweb="checkbox"] div {
+    background-color: white !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
