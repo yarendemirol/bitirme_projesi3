@@ -775,8 +775,6 @@ CITY_IMAGES = {
 }
 
 # session_state (seçili şehir)
-if "sehir" not in st.session_state:
-    st.session_state.sehir = "İstanbul"
 
 cols = st.columns(3)
 
@@ -788,31 +786,27 @@ for i, city in enumerate(CITY_IMAGES.keys()):
             st.image(str(img_path), use_container_width=True)
 
         if st.button(city):
-            if "sehir" not in st.session_state:
-              st.session_state.sehir = "İstanbul"
-    
-            st.session_state.sehir_selectbox = city
+            st.session_state["sehir"] = city
+        if "sehir" not in st.session_state:
+    st.session_state["sehir"] = "İstanbul"
+
+    sehir = st.session_state["sehir"]
 
 # seçili şehir artık buradan geliyor
-
+# default güvenli başlangıç
+if "sehir" not in st.session_state:
+    st.session_state["sehir"] = "İstanbul"
 
 
 st.write("İl/İlçe, metrekare ve temel özelliklere göre **tahmini satış fiyatını** hesaplayan bir sistem.")
 st.markdown("---")
 
-if "sehir_selectbox" not in st.session_state:
-    st.session_state.sehir_selectbox = "İstanbul"
+default_city = st.session_state.get("sehir", "İstanbul")
 
 sehir = st.selectbox(
     "Şehir",
     options=CITY_OPTIONS,
-    key="sehir_selectbox"
-)
-
-sehir = st.selectbox(
-    "Şehir",
-    options=CITY_OPTIONS,
-    key="sehir_selectbox"
+    index=CITY_OPTIONS.index(default_city)
 )
 
 df_city = df_all
