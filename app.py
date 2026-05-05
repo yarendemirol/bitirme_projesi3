@@ -30,121 +30,25 @@ st.markdown("""
 .stApp {
     background: linear-gradient(135deg, #f5f8ff, #eef4ff);
 }
+
+/* ================== GLOBAL RESET (ÖNEMLİ) ================== */
 * {
     transition: none !important;
 }
-/* yazılar */
+
+/* ================== TEXT ================== */
 p, label, span, .stMarkdown {
-    color: #111111  !important;
-}
-
-/* başlık */
-.main-title {
-    font-size: 36px;
-    font-weight: 800;
-    text-align: center;
-    color: #0b2c5f;
-}
-.sub-title {
-    font-size: 18px;
-    text-align: center;
-    color: #4a90e2;
-    margin-bottom: 25px;
-}
-
-/* kart */
-.card {
-    background: white;
-    padding: 18px;
-    border-radius: 18px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-    border: 1px solid #dce9ff;
-    margin-bottom: 10px;
-}
-
-/* input */
-div[data-baseweb="select"] > div {
-    border-radius: 10px;
-    background-color: white !important;
-}
-
-/* button */
-.stButton>button {
-    width: 100%;
-    border-radius: 12px;
-    background: #A7D8FF !important;
-    color: white !important;
-    font-size: 18px;
-    padding: 10px;
-    border: none;
-}
-.stButton>button:hover {
-    transform: scale(1.02);
-    transition: 0.2s;
-}
-div[data-baseweb="select"],
-div[data-baseweb="select"] * {
-    color: #111111 !important;
-}
-</style>
-<style>
-/* 🔵 NUMBER INPUT FIX (beyaz kutu) */
-div[data-baseweb="input"] input {
-    background-color: white !important;
-    color: #111111 !important;
-    border-radius: 10px !important;
-}
-
-/* Streamlit number input container */
-div[data-testid="stNumberInput"] {
-    background-color: white !important;
-    border-radius: 10px !important;
-    padding: 4px;
-}
-
-/* Focus efekti */
-div[data-testid="stNumberInput"] input:focus {
-    outline: none !important;
-    box-shadow: 0 0 0 2px #4a90e2 !important;
-}
-/* ================== NUMBER INPUT +/- BUTTON FIX ================== */
-
-/* sağdaki + - buton kapsayıcı */
-div[data-testid="stNumberInput"] button {
-    background-color: white !important;
-    border: 1px solid #d0d7e2 !important;
-}
-
-/* + ve - ikon rengi */
-div[data-testid="stNumberInput"] button svg {
-    fill: #111111 !important;
-}
-
-/* hover hali */
-div[data-testid="stNumberInput"] button:hover {
-    background-color: #eef4ff !important;
-}
-
-/* input kutusu */
-div[data-testid="stNumberInput"] input {
-    background-color: white !important;
     color: #111111 !important;
 }
 
-/* ================== EK ÖZELLİKLER - STABLE CHECKBOX ================== */
-
-/* expander başlığı */
-div[data-testid="stExpander"] summary {
-    font-weight: 600;
-    color: #0b2c5f !important;
-}
+/* ================== CHECKBOX (TEK KAYNAK) ================== */
 
 /* checkbox kutusu */
 div[data-testid="stCheckbox"] div[role="checkbox"] {
-    background-color: white !important;
+    background-color: #ffffff !important;
     border: 2px solid #d0d7e2 !important;
     border-radius: 6px !important;
-    transition: none !important;
+    box-shadow: none !important;
 }
 
 /* seçili checkbox */
@@ -153,49 +57,35 @@ div[data-testid="stCheckbox"] div[role="checkbox"][aria-checked="true"] {
     border-color: #4a90e2 !important;
 }
 
-/* tik ikonu */
+/* tik */
 div[data-testid="stCheckbox"] svg {
-    fill: white !important;
+    fill: #ffffff !important;
 }
 
-/* yazılar (tam garanti fix) */
+/* yazı */
 div[data-testid="stCheckbox"] label,
 div[data-testid="stCheckbox"] span,
-div[data-testid="stCheckbox"] div {
+div[data-testid="stCheckbox"] * {
     color: #111111 !important;
 }
 
-/* ❌ HOVER TAMAMEN KAPALI */
+/* hover TAMAMEN kapalı */
 div[data-testid="stCheckbox"]:hover div[role="checkbox"] {
-    background-color: white !important;
+    background-color: #ffffff !important;
     border-color: #d0d7e2 !important;
     transform: none !important;
     box-shadow: none !important;
 }
-/* ================== CHECKBOX - WHITE STYLE ================== */
 
-/* checkbox kutusu (seçilmemiş hali) */
-div[data-testid="stCheckbox"] div[role="checkbox"] {
-    background-color: white !important;
-    border: 2px solid #d0d7e2 !important;
-    border-radius: 6px !important;
+/* ================== EXPANDER ================== */
+div[data-testid="stExpander"] summary {
+    font-weight: 600;
+    color: #0b2c5f !important;
 }
 
-/* checkbox seçili hali */
-div[data-testid="stCheckbox"] div[role="checkbox"][aria-checked="true"] {
-    background-color: #4a90e2 !important;
-    border-color: #4a90e2 !important;
-}
-
-/* tik rengi */
-div[data-testid="stCheckbox"] svg {
-    fill: white !important;
-}
-
-/* yazı rengi */
-div[data-testid="stCheckbox"] label,
-div[data-testid="stCheckbox"] span {
-    color: #111111 !important;
+/* expander içi */
+div[data-testid="stExpander"] {
+    background: transparent !important;
 }
 </style>
 """, unsafe_allow_html=True)
