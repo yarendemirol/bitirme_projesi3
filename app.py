@@ -105,6 +105,33 @@ div[data-testid="stNumberInput"] input:focus {
     outline: none !important;
     box-shadow: 0 0 0 2px #4a90e2 !important;
 }
+/* ================== EXPANDER FIX ================== */
+div[data-testid="stExpander"] {
+    background-color: white !important;
+    border-radius: 14px !important;
+    border: 1px solid #dce9ff !important;
+}
+
+/* Expander başlık (Ek Özellikler yazısı) */
+div[data-testid="stExpander"] summary {
+    color: #111111 !important;
+    font-weight: 600 !important;
+}
+
+/* Expander içindeki tüm yazılar */
+div[data-testid="stExpander"] * {
+    color: #111111 !important;
+}
+
+/* Checkbox label yazıları */
+div[data-testid="stCheckbox"] label span {
+    color: #111111 !important;
+}
+
+/* Checkbox kutu arka plan fix */
+div[data-testid="stCheckbox"] {
+    background: transparent !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
