@@ -26,123 +26,81 @@ st.markdown(
 <style>
 
 /* =========================
-   GENEL
+   GENEL TEXT -> SİYAH
 ========================= */
 
-.stApp {
-    background: linear-gradient(135deg, #f5f8ff, #eef4ff) !important;
-    color: #111111 !important;
+html, body, .stApp {
+    color: #000000 !important;
 }
 
-/* TÜM TEXT (en agresif override) */
-html, body, .stApp, p, span, label, div {
-    color: #111111 !important;
+/* tüm yazılar */
+* {
+    color: #000000 !important;
 }
 
-/* başlık */
+/* başlıklar */
 h1, h2, h3, h4, h5 {
-    color: #0b2c5f !important;
+    color: #000000 !important;
+}
+
+/* label’lar */
+label {
+    color: #000000 !important;
 }
 
 /* =========================
-   SIDEBAR
+   KUTULAR -> BEYAZ
 ========================= */
 
-section[data-testid="stSidebar"] {
-    background-color: #f1f6ff !important;
-}
-
-/* =========================
-   SELECTBOX - FULL FORCE FIX
-========================= */
-
-/* ana kutu */
+/* SELECTBOX */
 div[data-baseweb="select"] {
-    background-color: white !important;
-    border-radius: 12px !important;
-    border: 1px solid #dce9ff !important;
+    background-color: #ffffff !important;
+    border-radius: 10px !important;
+    border: 1px solid #ddd !important;
 }
 
-/* EN KRİTİK: iç text + span + div + svg */
-div[data-baseweb="select"] *,
-div[data-baseweb="select"] span,
-div[data-baseweb="select"] div {
-    color: #111111 !important;
+div[data-baseweb="select"] * {
+    color: #000000 !important;
 }
 
-/* Streamlit input layer (ASIL SORUN BURASI) */
-div[data-baseweb="select"] input {
-    color: #111111 !important;
-    -webkit-text-fill-color: #111111 !important;
+/* INPUT */
+input, textarea {
+    background-color: #ffffff !important;
+    color: #000000 !important;
 }
 
-/* dropdown panel */
+/* NUMBER INPUT */
+div[data-testid="stNumberInput"] {
+    background-color: #ffffff !important;
+    border-radius: 10px !important;
+    border: 1px solid #ddd !important;
+}
+
+div[data-baseweb="input"] input {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* dropdown */
 div[data-baseweb="popover"] {
-    background-color: white !important;
+    background-color: #ffffff !important;
 }
 
-/* seçenekler */
 div[role="option"] {
-    background-color: white !important;
-    color: #111111 !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
 }
 
 /* hover */
 div[role="option"]:hover {
-    background-color: #eef4ff !important;
-    color: #0b2c5f !important;
+    background-color: #f2f2f2 !important;
 }
 
-/* label */
-.stSelectbox label {
-    color: #0b2c5f !important;
-    font-weight: 600 !important;
-}
-
-/* =========================
-   NUMBER INPUT
-========================= */
-
-div[data-baseweb="input"] input {
-    background-color: white !important;
-    color: #111111 !important;
-}
-
-div[data-testid="stNumberInput"] {
-    background-color: white !important;
-    border-radius: 10px !important;
-    border: 1px solid #dce9ff !important;
-}
-
-div[data-testid="stNumberInput"] input:focus {
-    box-shadow: 0 0 0 2px #A7D8FF !important;
-    outline: none !important;
-}
-
-/* =========================
-   BUTTON
-========================= */
-
+/* button */
 .stButton>button {
-    width: 100%;
-    border-radius: 12px;
-    background: #A7D8FF !important;
-    color: white !important;
-    font-size: 18px;
-    border: none;
-}
-
-.stButton>button:hover {
-    transform: scale(1.02);
-    transition: 0.2s;
-}
-
-/* =========================
-   HR
-========================= */
-
-hr {
-    border-color: #dce9ff !important;
+    background-color: #111111 !important;
+    color: #ffffff !important;
+    border-radius: 10px !important;
 }
 
 </style>
