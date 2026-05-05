@@ -131,7 +131,7 @@ div[data-testid="stNumberInput"] input {
     color: #111111 !important;
 }
 
-/* ================== EK ÖZELLİKLER - EXPANDER + CHECKBOX FIX ================== */
+/* ================== EK ÖZELLİKLER - STABLE CHECKBOX ================== */
 
 /* expander başlığı */
 div[data-testid="stExpander"] summary {
@@ -139,16 +139,12 @@ div[data-testid="stExpander"] summary {
     color: #0b2c5f !important;
 }
 
-/* expander içi background */
-div[data-testid="stExpander"] > div {
-    background-color: transparent !important;
-}
-
 /* checkbox kutusu */
 div[data-testid="stCheckbox"] div[role="checkbox"] {
     background-color: white !important;
     border: 2px solid #d0d7e2 !important;
     border-radius: 6px !important;
+    transition: none !important;
 }
 
 /* seçili checkbox */
@@ -162,21 +158,19 @@ div[data-testid="stCheckbox"] svg {
     fill: white !important;
 }
 
-/* checkbox yazıları (KRİTİK FIX) */
+/* yazılar (tam garanti fix) */
 div[data-testid="stCheckbox"] label,
 div[data-testid="stCheckbox"] span,
 div[data-testid="stCheckbox"] div {
     color: #111111 !important;
 }
 
-/* hover efekti */
+/* ❌ HOVER TAMAMEN KAPALI */
 div[data-testid="stCheckbox"]:hover div[role="checkbox"] {
-    border-color: #4a90e2 !important;
-}
-
-/* spacing */
-div[data-testid="stCheckbox"] {
-    padding: 4px 0;
+    background-color: white !important;
+    border-color: #d0d7e2 !important;
+    transform: none !important;
+    box-shadow: none !important;
 }
 </style>
 """, unsafe_allow_html=True)
