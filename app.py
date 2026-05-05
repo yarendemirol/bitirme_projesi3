@@ -51,6 +51,16 @@ input, textarea {
     border-radius: 10px !important;
     border: 1px solid #ddd !important;
 }
+button {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border: 1px solid #ddd !important;
+    box-shadow: none !important;
+}
+
+button:hover {
+    background-color: #f2f2f2 !important;
+}
 
 /* Streamlit input containers */
 div[data-baseweb="input"] {
