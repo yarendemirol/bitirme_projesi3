@@ -954,14 +954,11 @@ if st.button("💰 Tahmini Fiyatı Hesapla"):
 
         SHOW_ERROR = False
 
-        if SHOW_ERROR:
-            render_error_box_and_bar(tahmini_fiyat, ERROR_RATE)
+            
 
         st.caption("Not: Bu değer, ilan verileri ve eğitilen makine öğrenmesi modeline göre yaklaşık bir tahmindir.")
         SHOW_WARNING = False
 
-        if SHOW_WARNING:
-            st.warning("Uyarı: Kullanılan ilan verileri 11-12 Şubat tarihinde çekilmiştir.")
 
         if show_debug:
             with st.expander("🔎 Mahalle/İlçe/Şehir Debug"):
