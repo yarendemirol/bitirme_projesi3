@@ -131,6 +131,34 @@ div[data-testid="stNumberInput"] input {
     color: #111111 !important;
 }
 
+/* ================== CHECKBOX FIX ================== */
+
+/* checkbox kutusu */
+div[data-testid="stCheckbox"] div[role="checkbox"] {
+    background-color: white !important;
+    border: 1px solid #d0d7e2 !important;
+}
+
+/* checkbox seçili (checked) durum */
+div[data-testid="stCheckbox"] div[role="checkbox"][aria-checked="true"] {
+    background-color: #4a90e2 !important;
+    border: 1px solid #4a90e2 !important;
+}
+
+/* checkbox içindeki tik rengi */
+div[data-testid="stCheckbox"] svg {
+    fill: white !important;
+}
+
+/* label yazısı */
+div[data-testid="stCheckbox"] label {
+    color: #111111 !important;
+}
+
+/* hover efekti */
+div[data-testid="stCheckbox"]:hover div[role="checkbox"] {
+    border: 1px solid #4a90e2 !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
