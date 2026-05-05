@@ -26,7 +26,7 @@ st.markdown(
 <style>
 
 /* =========================
-   SAYFA ARKAPLAN
+   BACKGROUND
 ========================= */
 
 .stApp {
@@ -34,64 +34,33 @@ st.markdown(
 }
 
 /* =========================
-   GENEL YAZILAR
+   GLOBAL TEXT
 ========================= */
 
-h1, h2, h3, h4, h5, p, label, span,
-.stMarkdown, .stText, .stCaption {
+* {
     color: #000000 !important;
 }
 
 /* =========================
-   SELECTBOX (BASEWEB)
-========================= */
-
-/* kutu */
-div[data-baseweb="select"] {
-    background-color: #ffffff !important;
-    border-radius: 10px !important;
-    border: 1px solid #ddd !important;
-}
-
-/* seçili değer alanı */
-div[data-baseweb="select"] div {
-    color: #000000 !important;
-}
-
-/* input içi */
-div[data-baseweb="select"] input {
-    color: #000000 !important;
-    background-color: transparent !important;
-}
-
-/* dropdown menü */
-div[data-baseweb="popover"] {
-    background-color: #ffffff !important;
-    border-radius: 10px !important;
-}
-
-/* seçenekler */
-div[role="option"] {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-}
-
-/* hover */
-div[role="option"]:hover {
-    background-color: #f2f2f2 !important;
-    color: #000000 !important;
-}
-
-/* =========================
-   INPUT / TEXTAREA
+   INPUTS / TEXTAREAS
 ========================= */
 
 input, textarea {
     background-color: #ffffff !important;
     color: #000000 !important;
+    border-radius: 10px !important;
+    border: 1px solid #ddd !important;
 }
 
-/* number input */
+/* Streamlit input containers */
+div[data-baseweb="input"] {
+    background-color: #ffffff !important;
+}
+
+/* =========================
+   NUMBER INPUT
+========================= */
+
 div[data-testid="stNumberInput"] {
     background-color: #ffffff !important;
     border-radius: 10px !important;
@@ -99,54 +68,94 @@ div[data-testid="stNumberInput"] {
 }
 
 /* =========================
-   BUTTON
+   SELECTBOX (MAIN)
 ========================= */
 
-.stButton > button {
-    background-color: #111111 !important;
-    color: #ffffff !important;
-    border-radius: 10px !important;
-    border: none !important;
-}
-/* =========================
-   SELECTBOX DROPDOWN FULL WHITE FIX
-========================= */
-
-/* dropdown panel */
-div[data-baseweb="popover"] ul {
+div[data-baseweb="select"] {
     background-color: #ffffff !important;
     border-radius: 10px !important;
+    border: 1px solid #ddd !important;
 }
 
-/* seçenek kutuları */
-div[data-baseweb="popover"] li {
+/* selected value */
+div[data-baseweb="select"] * {
+    color: #000000 !important;
+}
+
+/* =========================
+   DROPDOWN MENU FULL FIX
+========================= */
+
+/* menu container */
+div[data-baseweb="popover"],
+div[data-baseweb="menu"] {
+    background-color: #ffffff !important;
+}
+
+/* list */
+div[data-baseweb="menu"] ul {
+    background-color: #ffffff !important;
+}
+
+/* items */
+div[data-baseweb="menu"] li,
+div[role="option"] {
     background-color: #ffffff !important;
     color: #000000 !important;
 }
 
 /* hover */
-div[data-baseweb="popover"] li:hover {
+div[data-baseweb="menu"] li:hover,
+div[role="option"]:hover {
     background-color: #f2f2f2 !important;
-    color: #000000 !important;
 }
 
-/* seçili / aktif item */
-div[data-baseweb="popover"] li[aria-selected="true"] {
+/* selected */
+div[data-baseweb="menu"] li[aria-selected="true"],
+div[role="option"][aria-selected="true"] {
     background-color: #eaeaea !important;
-    color: #000000 !important;
 }
 
-/* focus (klavye ile seçince gelen koyu gri) */
-div[data-baseweb="popover"] li:focus,
-div[data-baseweb="popover"] li:active {
+/* focus / active (gri sorun buradaydı) */
+div[data-baseweb="menu"] li:focus,
+div[data-baseweb="menu"] li:active,
+div[role="option"]:focus,
+div[role="option"]:active {
     background-color: #f2f2f2 !important;
+}
+
+/* =========================
+   BUTTONS (FULL FIX)
+========================= */
+
+button {
+    background-color: #ffffff !important;
     color: #000000 !important;
+    border: 1px solid #ddd !important;
+    border-radius: 10px !important;
+    box-shadow: none !important;
+}
+
+/* Streamlit button override */
+.stButton > button {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border: 1px solid #ddd !important;
+    border-radius: 10px !important;
+}
+
+/* hover button */
+.stButton > button:hover {
+    background-color: #f2f2f2 !important;
 }
 
 </style>
 """,
 unsafe_allow_html=True
 )
+
+
+
 # ================== DOSYA YOLLARI ==================
 from pathlib import Path
 
