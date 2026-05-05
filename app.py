@@ -30,7 +30,9 @@ st.markdown("""
 .stApp {
     background: linear-gradient(135deg, #f5f8ff, #eef4ff);
 }
-
+* {
+    transition: none !important;
+}
 /* yazılar */
 p, label, span, .stMarkdown {
     color: #111111  !important;
