@@ -23,8 +23,12 @@ from sklearn.preprocessing import OneHotEncoder
 
 st.set_page_config(page_title="Satılık Konut Fiyat Tahmin Sistemi", page_icon="🏠")
 
+st.markdown("""
 <style>
 
+/* =========================
+   GENERAL THEME
+========================= */
 
 .stApp {
     background: linear-gradient(135deg, #f5f8ff, #eef4ff);
@@ -35,7 +39,7 @@ p, label, span, .stMarkdown {
     color: #111 !important;
 }
 
-/* başlıklar */
+/* başlık */
 .main-title {
     font-size: 36px;
     font-weight: 800;
@@ -61,7 +65,7 @@ p, label, span, .stMarkdown {
 }
 
 /* =========================
-   🔽 SELECTBOX
+   SELECTBOX
 ========================= */
 
 div[data-baseweb="select"] > div {
@@ -75,7 +79,7 @@ div[data-baseweb="select"] * {
 }
 
 /* =========================
-   🔢 NUMBER INPUT
+   NUMBER INPUT
 ========================= */
 
 div[data-testid="stNumberInput"] {
@@ -96,7 +100,7 @@ div[data-testid="stNumberInput"] input:focus {
 }
 
 /* =========================
-   🔘 BUTTON
+   BUTTON
 ========================= */
 
 .stButton>button {
@@ -115,39 +119,34 @@ div[data-testid="stNumberInput"] input:focus {
 }
 
 /* =========================
-   ☑️ CHECKBOX (KESİN FIX)
+   CHECKBOX FIX
 ========================= */
 
-/* container */
 div[data-baseweb="checkbox"] {
     background: transparent !important;
 }
 
-/* kutu */
 div[data-baseweb="checkbox"] div {
     background-color: white !important;
     border: 2px solid #dce9ff !important;
     border-radius: 6px !important;
 }
 
-/* hover */
 div[data-baseweb="checkbox"]:hover div {
     border-color: #4a90e2 !important;
 }
 
-/* tick */
 div[data-baseweb="checkbox"] svg {
     fill: #4a90e2 !important;
 }
 
-/* seçili durum */
 div[data-baseweb="checkbox"][aria-checked="true"] div {
     background-color: #4a90e2 !important;
     border-color: #4a90e2 !important;
 }
 
 /* =========================
-   📦 EXPANDER FIX
+   EXPANDER FIX
 ========================= */
 
 div[data-testid="stExpander"] {
@@ -165,6 +164,7 @@ div[data-testid="stExpander"] div[data-baseweb="checkbox"][aria-checked="true"] 
 }
 
 </style>
+""", unsafe_allow_html=True)
 
 
 # ================== DOSYA YOLLARI ==================
