@@ -22,107 +22,129 @@ except ImportError:
 from sklearn.preprocessing import OneHotEncoder
 
 st.markdown(
-    """
-    <style>
+"""
+<style>
 
-    /* =========================
-       GENEL SAYFA
-    ========================= */
+/* =========================
+   GENEL ARKA PLAN
+========================= */
 
-    .stApp {
-        background-color: #f6f3ee !important;
-        color: #000000 !important;
-    }
+.stApp {
+    background: linear-gradient(135deg, #f5f8ff, #eef4ff);
+    color: #111111 !important;
+}
 
-    html, body {
-        color: #000000 !important;
-        font-family: Arial, sans-serif !important;
-    }
+/* tüm yazılar */
+* {
+    color: #111111 !important;
+}
 
-    * {
-        color: #000000 !important;
-    }
+/* başlık */
+h1, h2, h3, h4 {
+    color: #0b2c5f !important;
+}
 
-    h1, h2, h3, h4, h5, h6 {
-        color: #000000 !important;
-    }
+/* =========================
+   SELECTBOX FIX (ASIL SORUN BURASI)
+========================= */
 
-    section[data-testid="stSidebar"] {
-        background-color: #f1ede6 !important;
-    }
+/* ana kutu */
+div[data-baseweb="select"] {
+    background-color: white !important;
+    border-radius: 12px !important;
+    border: 1px solid #dce9ff !important;
+}
 
-    /* =========================
-       SELECTBOX (KATEGORİ KUTULARI FIX)
-    ========================= */
+/* seçilen değer */
+div[data-baseweb="select"] div {
+    color: #111111 !important;
+}
 
-    div[data-baseweb="select"] {
-        background-color: #ffffff !important;
-        border-radius: 10px !important;
-    }
+/* dropdown panel */
+div[data-baseweb="popover"] {
+    background-color: white !important;
+}
 
-    div[data-baseweb="select"] * {
-        color: #000000 !important;
-    }
+/* seçenekler */
+div[role="option"] {
+    background-color: white !important;
+    color: #111111 !important;
+}
 
-    div[data-baseweb="popover"] {
-        background-color: #ffffff !important;
-    }
+/* hover */
+div[role="option"]:hover {
+    background-color: #eef4ff !important;
+    color: #0b2c5f !important;
+}
 
-    div[role="option"] {
-        background-color: #ffffff !important;
-        color: #000000 !important;
-    }
+/* label */
+.stSelectbox label {
+    color: #0b2c5f !important;
+    font-weight: 600;
+}
 
-    div[role="option"]:hover {
-        background-color: #f0eae0 !important;
-        color: #000000 !important;
-    }
+/* =========================
+   NUMBER INPUT FIX
+========================= */
 
-    .stSelectbox label {
-        color: #000000 !important;
-        font-weight: 500;
-    }
+div[data-baseweb="input"] input {
+    background-color: white !important;
+    color: #111111 !important;
+    border-radius: 10px !important;
+}
 
-    /* =========================
-       INPUT
-    ========================= */
+div[data-testid="stNumberInput"] {
+    background-color: white !important;
+    border-radius: 10px !important;
+    border: 1px solid #dce9ff !important;
+}
 
-    input, textarea {
-        background-color: #ffffff !important;
-        color: #000000 !important;
-    }
+/* focus */
+div[data-testid="stNumberInput"] input:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 2px #A7D8FF !important;
+}
 
-    /* =========================
-       BUTTON
-    ========================= */
+/* =========================
+   BUTTON (senin mavi tema)
+========================= */
 
-    button {
-        background-color: #111111 !important;
-        color: #ffffff !important;
-        border-radius: 10px !important;
-    }
+.stButton>button {
+    width: 100%;
+    border-radius: 12px;
+    background: #A7D8FF !important;
+    color: white !important;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+}
 
-    /* =========================
-       CHECKBOX / RADIO
-    ========================= */
+.stButton>button:hover {
+    transform: scale(1.02);
+    transition: 0.2s;
+}
 
-    .stCheckbox label,
-    .stRadio label,
-    .stMultiSelect label {
-        color: #000000 !important;
-    }
+/* =========================
+   TEXT
+========================= */
 
-    /* =========================
-       HR
-    ========================= */
+p, label, span, .stMarkdown {
+    color: #111111 !important;
+}
 
-    hr {
-        border-color: #ddd !important;
-    }
+/* sidebar */
+section[data-testid="stSidebar"] {
+    background-color: #f1f6ff !important;
+}
 
-    </style>
-    """,
-    unsafe_allow_html=True
+/* kart hissi */
+.block-container {
+    padding-top: 2rem;
+}
+
+</style>
+""",
+unsafe_allow_html=True
 )
 
 # ================== DOSYA YOLLARI ==================
