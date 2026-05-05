@@ -26,25 +26,23 @@ st.markdown(
 <style>
 
 /* =========================
-   GENEL TEXT -> SİYAH
+   SADECE SAYFA ARKA PLAN
 ========================= */
 
-html, body, .stApp {
+.stApp {
+    background: linear-gradient(135deg, #f5f8ff, #eef4ff) !important;
+}
+
+/* =========================
+   SADECE YAZILAR (KONTROLLÜ)
+========================= */
+
+h1, h2, h3, h4, h5, p, label, span {
     color: #000000 !important;
 }
 
-/* tüm yazılar */
-* {
-    color: #000000 !important;
-}
-
-/* başlıklar */
-h1, h2, h3, h4, h5 {
-    color: #000000 !important;
-}
-
-/* label’lar */
-label {
+/* Streamlit default text */
+.stMarkdown, .stText, .stCaption {
     color: #000000 !important;
 }
 
@@ -59,6 +57,7 @@ div[data-baseweb="select"] {
     border: 1px solid #ddd !important;
 }
 
+/* select iç yazı */
 div[data-baseweb="select"] * {
     color: #000000 !important;
 }
@@ -81,7 +80,7 @@ div[data-baseweb="input"] input {
     color: #000000 !important;
 }
 
-/* dropdown */
+/* DROPDOWN */
 div[data-baseweb="popover"] {
     background-color: #ffffff !important;
 }
@@ -91,12 +90,14 @@ div[role="option"] {
     color: #000000 !important;
 }
 
-/* hover */
 div[role="option"]:hover {
     background-color: #f2f2f2 !important;
 }
 
-/* button */
+/* =========================
+   BUTTON
+========================= */
+
 .stButton>button {
     background-color: #111111 !important;
     color: #ffffff !important;
@@ -107,7 +108,6 @@ div[role="option"]:hover {
 """,
 unsafe_allow_html=True
 )
-
 # ================== DOSYA YOLLARI ==================
 from pathlib import Path
 
