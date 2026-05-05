@@ -107,6 +107,29 @@ div[data-testid="stNumberInput"] input:focus {
     outline: none !important;
     box-shadow: 0 0 0 2px #4a90e2 !important;
 }
+/* ================== NUMBER INPUT +/- BUTTON FIX ================== */
+
+/* sağdaki + - buton kapsayıcı */
+div[data-testid="stNumberInput"] button {
+    background-color: white !important;
+    border: 1px solid #d0d7e2 !important;
+}
+
+/* + ve - ikon rengi */
+div[data-testid="stNumberInput"] button svg {
+    fill: #111111 !important;
+}
+
+/* hover hali */
+div[data-testid="stNumberInput"] button:hover {
+    background-color: #eef4ff !important;
+}
+
+/* input kutusu */
+div[data-testid="stNumberInput"] input {
+    background-color: white !important;
+    color: #111111 !important;
+}
 /* ================== STREAMLIT GLOBAL EXPANDER FIX ================== */
 
 /* expander iç container */
