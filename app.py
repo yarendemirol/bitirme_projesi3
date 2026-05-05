@@ -26,7 +26,7 @@ st.markdown(
 <style>
 
 /* =========================
-   SADECE SAYFA ARKA PLAN
+   SAYFA ARKAPLAN
 ========================= */
 
 .stApp {
@@ -34,74 +34,79 @@ st.markdown(
 }
 
 /* =========================
-   SADECE YAZILAR (KONTROLLÜ)
+   GENEL YAZILAR
 ========================= */
 
-h1, h2, h3, h4, h5, p, label, span {
-    color: #000000 !important;
-}
-
-/* Streamlit default text */
+h1, h2, h3, h4, h5, p, label, span,
 .stMarkdown, .stText, .stCaption {
     color: #000000 !important;
 }
 
 /* =========================
-   KUTULAR -> BEYAZ
+   SELECTBOX (BASEWEB)
 ========================= */
 
-/* SELECTBOX */
+/* kutu */
 div[data-baseweb="select"] {
     background-color: #ffffff !important;
     border-radius: 10px !important;
     border: 1px solid #ddd !important;
 }
 
-/* select iç yazı */
-div[data-baseweb="select"] * {
+/* seçili değer alanı */
+div[data-baseweb="select"] div {
     color: #000000 !important;
 }
 
-/* INPUT */
+/* input içi */
+div[data-baseweb="select"] input {
+    color: #000000 !important;
+    background-color: transparent !important;
+}
+
+/* dropdown menü */
+div[data-baseweb="popover"] {
+    background-color: #ffffff !important;
+    border-radius: 10px !important;
+}
+
+/* seçenekler */
+div[role="option"] {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* hover */
+div[role="option"]:hover {
+    background-color: #f2f2f2 !important;
+    color: #000000 !important;
+}
+
+/* =========================
+   INPUT / TEXTAREA
+========================= */
+
 input, textarea {
     background-color: #ffffff !important;
     color: #000000 !important;
 }
 
-/* NUMBER INPUT */
+/* number input */
 div[data-testid="stNumberInput"] {
     background-color: #ffffff !important;
     border-radius: 10px !important;
     border: 1px solid #ddd !important;
 }
 
-div[data-baseweb="input"] input {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-}
-
-/* DROPDOWN */
-div[data-baseweb="popover"] {
-    background-color: #ffffff !important;
-}
-
-div[role="option"] {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-}
-
-div[role="option"]:hover {
-    background-color: #f2f2f2 !important;
-}
-
 /* =========================
    BUTTON
 ========================= */
 
-.stButton>button {
+.stButton > button {
     background-color: #111111 !important;
     color: #ffffff !important;
     border-radius: 10px !important;
+    border: none !important;
 }
 
 </style>
