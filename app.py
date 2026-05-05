@@ -21,93 +21,98 @@ except ImportError:
 
 from sklearn.preprocessing import OneHotEncoder
 
-# ================== SAYFA AYARI ==================
-st.set_page_config(page_title="Satılık Konut Fiyat Tahmin Sistemi", page_icon="🏠")
-
 st.markdown(
     """
     <style>
+
     /* =========================
-       GENEL STİL
+       GENEL SAYFA
     ========================= */
 
     .stApp {
-        background-color: #f6f3ee;
-        color: #111111;
+        background-color: #f6f3ee !important;
+        color: #000000 !important;
     }
 
-    html, body, [class*="css"]  {
-        color: #111111 !important;
-        font-family: "Arial";
+    html, body {
+        color: #000000 !important;
+        font-family: Arial, sans-serif !important;
     }
 
+    /* Tüm yazılar */
+    * {
+        color: #000000 !important;
+    }
+
+    /* Başlıklar */
+    h1, h2, h3, h4, h5, h6 {
+        color: #000000 !important;
+    }
+
+    /* Sidebar */
     section[data-testid="stSidebar"] {
-        background-color: #f1ede6;
-    }
-
-    .stTextInput, .stNumberInput, .stSelectbox {
-        background-color: white !important;
-        color: black !important;
-    }
-
-    button {
-        background-color: #111111 !important;
-        color: white !important;
-        border-radius: 10px;
-    }
-
-    h1, h2, h3 {
-        color: #111111 !important;
-    }
-
-    hr {
-        border-color: #ddd;
+        background-color: #f1ede6 !important;
     }
 
     /* =========================
-       SELECTBOX (BASEWEB FIX)
+       INPUT & SELECTBOX
     ========================= */
 
     div[data-baseweb="select"] {
-        background-color: white !important;
-        color: black !important;
-        border-radius: 10px;
+        background-color: #ffffff !important;
+        border-radius: 10px !important;
     }
 
-    div[data-baseweb="select"] span {
-        color: black !important;
+    div[data-baseweb="select"] * {
+        color: #000000 !important;
     }
 
     div[data-baseweb="popover"] {
-        background-color: white !important;
-        color: black !important;
+        background-color: #ffffff !important;
     }
 
     div[role="option"] {
-        background-color: white !important;
-        color: black !important;
+        background-color: #ffffff !important;
+        color: #000000 !important;
     }
 
     div[role="option"]:hover {
         background-color: #f0eae0 !important;
-        color: black !important;
+        color: #000000 !important;
+    }
+
+    /* Input kutuları */
+    input, textarea {
+        background-color: #ffffff !important;
+        color: #000000 !important;
     }
 
     /* =========================
-       CHECKBOX
+       BUTTON
     ========================= */
 
-    .stCheckbox label {
-        color: black !important;
+    button {
+        background-color: #111111 !important;
+        color: #ffffff !important;
+        border-radius: 10px !important;
     }
 
     /* =========================
-       RADIO / MULTISELECT
+       CHECKBOX / RADIO
     ========================= */
 
+    .stCheckbox label,
     .stRadio label,
     .stMultiSelect label {
-        color: black !important;
+        color: #000000 !important;
+    }
+
+    /* =========================
+       AYIRICILAR
+    ========================= */
+
+    hr {
+        border-color: #ddd !important;
     }
 
     </style>
