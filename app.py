@@ -21,225 +21,90 @@ except ImportError:
 
 from sklearn.preprocessing import OneHotEncoder
 
-st.markdown(
-"""
+st.set_page_config(page_title="Satılık Konut Fiyat Tahmin Sistemi", page_icon="🏠")
+
+st.markdown("""
 <style>
-
-/* =========================
-   BACKGROUND
-========================= */
-
 .stApp {
-    background: linear-gradient(135deg, #f5f8ff, #eef4ff) !important;
+    background: linear-gradient(135deg, #f5f8ff, #eef4ff);
 }
 
-/* =========================
-   GLOBAL TEXT
-========================= */
-
-* {
-    color: #000000 !important;
+/* yazılar */
+p, label, span, .stMarkdown {
+    color: #111111  !important;
 }
 
-/* =========================
-   INPUTS / TEXTAREAS
-========================= */
-
-input, textarea {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-    border-radius: 10px !important;
-    border: 1px solid #ddd !important;
+/* başlık */
+.main-title {
+    font-size: 36px;
+    font-weight: 800;
+    text-align: center;
+    color: #0b2c5f;
 }
-button {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-    border: 1px solid #ddd !important;
-    box-shadow: none !important;
+.sub-title {
+    font-size: 18px;
+    text-align: center;
+    color: #4a90e2;
+    margin-bottom: 25px;
 }
 
-button:hover {
-    background-color: #f2f2f2 !important;
+/* kart */
+.card {
+    background: white;
+    padding: 18px;
+    border-radius: 18px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    border: 1px solid #dce9ff;
+    margin-bottom: 10px;
 }
 
-/* Streamlit input containers */
-div[data-baseweb="input"] {
-    background-color: #ffffff !important;
+/* input */
+div[data-baseweb="select"] > div {
+    border-radius: 10px;
+    background-color: white !important;
 }
 
-/* =========================
-   NUMBER INPUT
-========================= */
-
-div[data-testid="stNumberInput"] {
-    background-color: #ffffff !important;
-    border-radius: 10px !important;
-    border: 1px solid #ddd !important;
+/* button */
+.stButton>button {
+    width: 100%;
+    border-radius: 12px;
+    background: #A7D8FF !important;
+    color: white !important;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
 }
-
-/* =========================
-   SELECTBOX (MAIN)
-========================= */
-
-div[data-baseweb="select"] {
-    background-color: #ffffff !important;
-    border-radius: 10px !important;
-    border: 1px solid #ddd !important;
+.stButton>button:hover {
+    transform: scale(1.02);
+    transition: 0.2s;
 }
-
-/* selected value */
+div[data-baseweb="select"],
 div[data-baseweb="select"] * {
-    color: #000000 !important;
+    color: #111111 !important;
 }
-
-/* =========================
-   DROPDOWN MENU FULL FIX
-========================= */
-
-/* menu container */
-div[data-baseweb="popover"],
-div[data-baseweb="menu"] {
-    background-color: #ffffff !important;
-}
-/* =========================
-   SELECTBOX FULL OVERRIDE (STREAMLIT BASEWEB)
-========================= */
-
-/* dropdown kutusu */
-div[data-baseweb="select"] {
-    background-color: #ffffff !important;
-    border-radius: 10px !important;
-    border: 1px solid #ddd !important;
-    box-shadow: none !important;
-}
-
-/* seçili text */
-div[data-baseweb="select"] * {
-    color: #000000 !important;
-}
-
-/* popup container */
-div[data-baseweb="popover"] {
-    background-color: #ffffff !important;
-    border-radius: 12px !important;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.08) !important;
-}
-
-/* menu wrapper */
-div[data-baseweb="menu"] {
-    background-color: #ffffff !important;
-}
-
-/* UL list */
-div[data-baseweb="menu"] ul {
-    background-color: #ffffff !important;
-    padding: 6px !important;
-}
-
-/* OPTION ITEM (asıl sorun buradaydı) */
-div[data-baseweb="menu"] li,
-div[role="option"] {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-    border-radius: 8px !important;
-}
-
-/* hover */
-div[data-baseweb="menu"] li:hover,
-div[role="option"]:hover {
-    background-color: #f2f2f2 !important;
-    color: #000000 !important;
-}
-
-/* selected item */
-div[data-baseweb="menu"] li[aria-selected="true"],
-div[role="option"][aria-selected="true"] {
-    background-color: #e6e6e6 !important;
-    color: #000000 !important;
-}
-
-/* focus / active (Streamlit griyi buradan basıyor) */
-div[data-baseweb="menu"] li:focus,
-div[data-baseweb="menu"] li:active,
-div[role="option"]:focus,
-div[role="option"]:active {
-    background-color: #f2f2f2 !important;
-    color: #000000 !important;
-    outline: none !important;
-}
-
-/* icon / chevron */
-div[data-baseweb="select"] svg {
-    fill: #000000 !important;
-}
-
-/* placeholder */
-div[data-baseweb="select"] div {
-    color: #000000 !important;
-}
-
-/* list */
-div[data-baseweb="menu"] ul {
-    background-color: #ffffff !important;
-}
-
-/* items */
-div[data-baseweb="menu"] li,
-div[role="option"] {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-}
-
-/* hover */
-div[data-baseweb="menu"] li:hover,
-div[role="option"]:hover {
-    background-color: #f2f2f2 !important;
-}
-
-/* selected */
-div[data-baseweb="menu"] li[aria-selected="true"],
-div[role="option"][aria-selected="true"] {
-    background-color: #eaeaea !important;
-}
-
-/* focus / active (gri sorun buradaydı) */
-div[data-baseweb="menu"] li:focus,
-div[data-baseweb="menu"] li:active,
-div[role="option"]:focus,
-div[role="option"]:active {
-    background-color: #f2f2f2 !important;
-}
-
-/* =========================
-   BUTTONS (FULL FIX)
-========================= */
-
-button {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-    border: 1px solid #ddd !important;
-    border-radius: 10px !important;
-    box-shadow: none !important;
-}
-
-/* Streamlit button override */
-.stButton > button {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-    border: 1px solid #ddd !important;
-    border-radius: 10px !important;
-}
-
-/* hover button */
-.stButton > button:hover {
-    background-color: #f2f2f2 !important;
-}
-
 </style>
-""",
-unsafe_allow_html=True
-)
+<style>
+/* 🔵 NUMBER INPUT FIX (beyaz kutu) */
+div[data-baseweb="input"] input {
+    background-color: white !important;
+    color: #111111 !important;
+    border-radius: 10px !important;
+}
 
+/* Streamlit number input container */
+div[data-testid="stNumberInput"] {
+    background-color: white !important;
+    border-radius: 10px !important;
+    padding: 4px;
+}
+
+/* Focus efekti */
+div[data-testid="stNumberInput"] input:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 2px #4a90e2 !important;
+}
+</style>
+""", unsafe_allow_html=True)
 
 
 # ================== DOSYA YOLLARI ==================
