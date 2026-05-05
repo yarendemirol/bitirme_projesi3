@@ -790,14 +790,13 @@ for i, city in enumerate(CITY_IMAGES.keys()):
 
         if st.button(city):
             st.session_state["sehir"] = city
+            st.rerun()
           
 
 sehir = st.session_state["sehir"]
 
 # seçili şehir artık buradan geliyor
-# default güvenli başlangıç
-if "sehir" not in st.session_state:
-    st.session_state["sehir"] = "İstanbul"
+# default güvenli başlan
 
 
 st.write("İl/İlçe, metrekare ve temel özelliklere göre **tahmini satış fiyatını** hesaplayan bir sistem.")
@@ -808,7 +807,7 @@ default_city = st.session_state.get("sehir", "İstanbul")
 sehir = st.selectbox(
     "Şehir",
     options=CITY_OPTIONS,
-    index=CITY_OPTIONS.index(default_city)
+    key="sehir"
 )
 
 df_city = df_all
