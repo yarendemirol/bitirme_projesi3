@@ -26,26 +26,34 @@ st.markdown(
 <style>
 
 /* =========================
-   GENEL ARKA PLAN
+   GENEL
 ========================= */
 
 .stApp {
-    background: linear-gradient(135deg, #f5f8ff, #eef4ff);
+    background: linear-gradient(135deg, #f5f8ff, #eef4ff) !important;
     color: #111111 !important;
 }
 
-/* tüm yazılar */
-* {
+/* TÜM TEXT (en agresif override) */
+html, body, .stApp, p, span, label, div {
     color: #111111 !important;
 }
 
 /* başlık */
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5 {
     color: #0b2c5f !important;
 }
 
 /* =========================
-   SELECTBOX FIX (ASIL SORUN BURASI)
+   SIDEBAR
+========================= */
+
+section[data-testid="stSidebar"] {
+    background-color: #f1f6ff !important;
+}
+
+/* =========================
+   SELECTBOX - FULL FORCE FIX
 ========================= */
 
 /* ana kutu */
@@ -55,9 +63,17 @@ div[data-baseweb="select"] {
     border: 1px solid #dce9ff !important;
 }
 
-/* seçilen değer */
+/* EN KRİTİK: iç text + span + div + svg */
+div[data-baseweb="select"] *,
+div[data-baseweb="select"] span,
 div[data-baseweb="select"] div {
     color: #111111 !important;
+}
+
+/* Streamlit input layer (ASIL SORUN BURASI) */
+div[data-baseweb="select"] input {
+    color: #111111 !important;
+    -webkit-text-fill-color: #111111 !important;
 }
 
 /* dropdown panel */
@@ -80,17 +96,16 @@ div[role="option"]:hover {
 /* label */
 .stSelectbox label {
     color: #0b2c5f !important;
-    font-weight: 600;
+    font-weight: 600 !important;
 }
 
 /* =========================
-   NUMBER INPUT FIX
+   NUMBER INPUT
 ========================= */
 
 div[data-baseweb="input"] input {
     background-color: white !important;
     color: #111111 !important;
-    border-radius: 10px !important;
 }
 
 div[data-testid="stNumberInput"] {
@@ -99,14 +114,13 @@ div[data-testid="stNumberInput"] {
     border: 1px solid #dce9ff !important;
 }
 
-/* focus */
 div[data-testid="stNumberInput"] input:focus {
-    outline: none !important;
     box-shadow: 0 0 0 2px #A7D8FF !important;
+    outline: none !important;
 }
 
 /* =========================
-   BUTTON (senin mavi tema)
+   BUTTON
 ========================= */
 
 .stButton>button {
@@ -115,7 +129,6 @@ div[data-testid="stNumberInput"] input:focus {
     background: #A7D8FF !important;
     color: white !important;
     font-size: 18px;
-    padding: 10px;
     border: none;
 }
 
@@ -125,21 +138,11 @@ div[data-testid="stNumberInput"] input:focus {
 }
 
 /* =========================
-   TEXT
+   HR
 ========================= */
 
-p, label, span, .stMarkdown {
-    color: #111111 !important;
-}
-
-/* sidebar */
-section[data-testid="stSidebar"] {
-    background-color: #f1f6ff !important;
-}
-
-/* kart hissi */
-.block-container {
-    padding-top: 2rem;
+hr {
+    border-color: #dce9ff !important;
 }
 
 </style>
