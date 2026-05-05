@@ -777,7 +777,7 @@ for i, city in enumerate(CITY_IMAGES.keys()):
         img_path = CITY_IMAGES[city]
 
         if img_path.exists():
-            st.image(str(img_path), use_container_width=True)
+            st.image("istanbul.jpg", width="stretch")
 
         if st.button(city):
             st.session_state["sehir"] = city
